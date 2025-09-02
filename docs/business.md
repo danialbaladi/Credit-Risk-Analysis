@@ -1,74 +1,74 @@
-# Business Understanding — Credit Risk Analysis (Stage 2)
+# Business Understanding — Credit Risk Analysis
+
+## Overview
+This document provides the business context and high-level understanding for the Credit Risk Analysis project.
+It defines objectives, key performance indicators (KPIs), constraints, strategic rationale, stakeholders, and deliverables.
 
 ## Objectives
-- Predict the probability of loan default within the next 90 days.
-- Support faster and more accurate credit decisions to reduce portfolio losses.
+- Predict the probability that a customer will default (fail to repay) on a loan within the next 90 days.
+- Reduce portfolio losses by accurately identifying high-risk borrowers.
 - Provide a simple, explainable baseline model for the credit risk team to evaluate.
 
 ## Key Performance Indicators (KPIs)
 | KPI | Definition |
 | --- | --- |
-| Precision for "Approve" class | High precision for approved loans to avoid approving high-risk borrowers. |
-| Recall for "Reject" class | Ensure the model captures actual bad borrowers (minimize false negatives for the reject decision). |
-| Default Rate Reduction | Percentage reduction in default incidents after model deployment. |
-| Net Profit from Lending | Increase in net profit while keeping acceptable risk levels. |
-| Decision Time Reduction | Decrease in manual decision time due to automated scoring. |
+| Precision for Default | Percentage of predicted defaults that are actual defaults — minimizes false alarms. |
+| Recall for Default | Percentage of actual defaults that are correctly predicted — captures most high-risk borrowers. |
+| Default Rate Reduction | Reduction in default incidents after model deployment. |
+| Net Profit from Lending | Increase in net profit while maintaining acceptable risk levels. |
+| Decision Time Reduction | Decrease in manual loan assessment time through automated scoring. |
+
+> **Note:** The positive class (1) corresponds to **Default**. Model outputs can be translated into actionable **Approve/Reject** decisions.
 
 ## Constraints
 | Constraint | Description |
 | --- | --- |
-| Time | Limited time for initial implementation (e.g., 1 month). |
+| Time | Limited time for initial implementation. |
 | Human Resources | Availability of data scientists, engineers, and credit experts. |
-| Data | Historical labeled loan data availability and data quality. |
-| Business Risk | High cost of false positives (approving bad loans). |
-| Internal Policies | Restrictions on using highly complex black-box models. |
+| Data | Historical labeled loan data with default information must be available. |
+| Business Risk | High cost of false negatives (failing to identify a default risk) and false positives (rejecting good borrowers). |
+| Internal Policies | Some complex black-box models may not be allowed due to explainability requirements. |
 
 ## Strategic Rationale
-| Question | Suggested Answer |
+| Question | Answer |
 | --- | --- |
-| Why now? | Recent increase in default rates and pressure to improve decision accuracy. |
-| What is changing? | Competitors use ML for loan screening; automation is becoming standard. |
-| Long-term goal | Automate decisioning, reduce manual workload, and keep risk under control. |
-| Management pressure | Yes — stakeholders expect higher efficiency and lower manual errors. |
+| Why now? | Rising default rates and pressure to improve loan decision accuracy. |
+| What is changing? | Competitors are using ML for credit scoring and automated approvals. |
+| Long-term goal | Automate decision-making, reduce manual workload, and control credit risk. |
+| Management pressure | Stakeholders expect higher efficiency and lower human error in credit assessments. |
 
 ## Stakeholders
-- Credit Risk Team (primary consumer of model scores)
-- Credit Underwriting / Loan Officers
+- Credit Risk Team (primary consumers of model predictions)
+- Loan Officers / Underwriting Team
 - Data Science / Engineering Team
 - Compliance & Legal
 - Product / Business Managers
 
 ## Success Criteria
-- Baseline model is developed and evaluated with AUC ≥ 0.70 (training/validation).  
-- Business approves a deployable scoring prototype (explainability and acceptable business metrics).  
-- Clear measurement plan to monitor default rate, profit impact, and decision latency post-deployment.
+- Baseline model developed and evaluated with acceptable metrics (e.g., AUC ≥ 0.70).  
+- Model output is explainable and can support actionable loan decisions.  
+- Monitoring plan defined for default rate, profit impact, and decision latency.
 
 ## Scope & Assumptions
-- Scope (initial): Build a baseline explainable model (Logistic Regression + simple Decision Tree) and a short EDA notebook.
+- Scope: Build a baseline explainable model (e.g., Logistic Regression, simple Decision Tree) and conduct exploratory data analysis.
 - Assumptions:
-  - Historical labeled data (including default label) is available.
-  - Appropriate features (demographics, credit history, repayment history) exist.
-  - Data privacy and regulatory constraints will be respected.
+  - Historical labeled data (including default labels) is available.
+  - Relevant features (demographics, credit history, repayment history) exist.
+  - Data privacy and regulatory requirements are respected.
 
 ## Risks & Mitigations
-- Class Imbalance: Use resampling or thresholding and appropriate metrics (AUC, Precision-Recall).
-- Data Leakage: Carefully separate training/validation data and avoid future information in features.
-- Bias/Fairness: Exclude or monitor sensitive attributes; run fairness checks.
-- Distribution Shift: Plan for monitoring and retraining strategy after deployment.
+- Class Imbalance: Use resampling, threshold tuning, and appropriate metrics.  
+- Data Leakage: Maintain proper separation between training and validation datasets.  
+- Bias/Fairness: Monitor sensitive attributes and implement fairness checks.  
+- Distribution Shift: Plan for post-deployment monitoring and retraining.
 
 ## Ethics & Compliance
-- Avoid discriminatory features or decisions based on protected attributes (e.g., gender, ethnicity).
-- Provide basic explainability (feature importance, simple rule summaries).
-- Protect personally identifiable information (PII) and adhere to data retention policies.
+- Avoid discriminatory decisions based on protected attributes (gender, ethnicity, etc.).  
+- Provide explainability via feature importance or simple rules.  
+- Protect personally identifiable information (PII) and comply with data retention policies.
 
-## Deliverables (Stage 2)
-- `docs/business.md` (this file) — business understanding and KPIs.
-- `notebooks/02_eda.ipynb` — exploratory data analysis notebook (to be created).
-- `docs/report_stage2.md` — short summary report (1–2 pages) of findings from Stage 2.
-
-## Next Steps (Stage 3 preview)
-1. Data selection: choose a public or internal dataset for EDA.
-2. EDA checklist: data load, schema check, missing values, target distribution, basic plots.
-3. Create `notebooks/02_eda.ipynb` and produce `docs/report_stage2.md`.
-4. Commit and review with stakeholders.
+## Deliverables
+- `docs/business.md` — business understanding and KPIs document.  
+- `notebooks/02_eda.ipynb` — placeholder for exploratory data analysis.  
+- `docs/report_stage2.md` — placeholder for summary report.
 
