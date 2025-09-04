@@ -19,3 +19,4 @@ data/processed/
 # Models / artifacts
 models/
 outputs/
+craenv/
