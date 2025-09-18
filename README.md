@@ -7,30 +7,6 @@ A machine learning project for credit risk classification. The workflow follows 
 
 ---
 
-## Project Structure
-
-```
-Credit-Risk-Analysis/
-│
-├── data/
-│   └── processed/
-│       └── Final/
-│           ├── train.csv
-│           ├── val.csv
-│           └── test.csv
-│
-├── notebooks/
-│   └── credit_risk_analysis.ipynb
-│
-├── models/
-│   ├── logistic_regression_final.pkl
-│   └── gaussian_nb_final.pkl
-│
-├── requirements.txt
-└── README.md
-```
-
----
 
 ## Dataset
 
